@@ -1,0 +1,52 @@
+@use '../../styles/Variables' as var;
+
+.header__container {
+  display: block;
+  padding: 21px 16px 0;
+  background-color: var(--white-color);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.header__nav {
+  display: flex;
+  li {
+    margin-left: 10px;
+    padding-bottom: 5px;
+    position: relative;
+  }
+
+  a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+    transform: scaleY(0);
+    transition: transform 0.2s ease;
+  }
+
+  a.active::after {
+    transform: scaleY(1);
+  }
+}
+
+@media (max-width: var.$tablet) {
+  img {
+    width: 150px;
+  }
+  .header__nav {
+    li {
+      &::after {
+        bottom: -5px;
+      }
+    }
+  }
+}

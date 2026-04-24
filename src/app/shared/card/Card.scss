@@ -1,0 +1,24 @@
+@use '../../../styles/Variables' as var;
+
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--white-color);
+  padding: 23px 45px;
+  width: 100%;
+  border-radius: 7px;
+}
+
+@media (max-width: var.$tablet) {
+  :host {
+    min-width: 250px;
+    padding: 8px 24px;
+  }
+
+  img {
+    width: 150px;
+    height: 150px;
+  }
+}
