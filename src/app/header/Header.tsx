@@ -5,7 +5,7 @@ function Header() {
     return (
         <section className="header__container">
             <header>
-                <img alt="Лого" src="public/images/fifaLogo.png" />
+                <img alt="Лого" src="/public/images/fifaLogo.png" />
                 <nav>
                     <ul className="header__nav">
                         <li>

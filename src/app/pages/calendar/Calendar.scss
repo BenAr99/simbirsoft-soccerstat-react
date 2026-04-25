@@ -1,0 +1,98 @@
+@use '../../../styles/Variables' as var;
+
+.calendar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--gray-color);
+  padding: 70px 109px 68px;
+}
+
+.match__date {
+  display: flex;
+  width: 100%;
+  justify-content: start;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+
+  .match__date-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    span {
+      width: 70px;
+    }
+  }
+}
+
+.match__container {
+  display: flex;
+  flex-direction: column;
+  padding: 47px 0;
+  width: 100%;
+}
+
+.match__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  background-color: var(--white-color);
+  border: 1px solid var(--black-gray-color);
+}
+
+.match__description {
+  display: flex;
+  justify-content: space-between;
+  flex: 1 1 0;
+  gap: 10px;
+
+  span {
+    text-align: center;
+    min-width: 80px;
+  }
+
+  .match__teams {
+    min-width: 270px;
+  }
+}
+
+.match__result {
+  display: flex;
+  flex: 1 1 0;
+  justify-content: end;
+}
+
+.navigation {
+  position: absolute;
+  top: 23px;
+  left: 31px
+}
+
+@media (max-width: var.$tablet) {
+  .calendar {
+    padding: 60px 35px 23px;
+  }
+
+  .match__content {
+    flex-direction: column;
+  }
+
+  .match__description {
+    flex-direction: column;
+
+    .match__teams {
+      min-width: 100px;
+    }
+  }
+
+  .match__date-item {
+    span {
+      width: 70px;
+    }
+  }
+}

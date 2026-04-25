@@ -1,10 +1,11 @@
 import './Leagues.scss'
 import {useEffect, useMemo, useState} from "react";
-import {getLeagues} from "./LeaguesService.ts";
-import type {League} from "../../types/leagues.contract.ts";
-import Card from "../shared/card/Card.tsx";
-import Input from "../shared/input/Input.tsx";
-import Pagination from "../shared/pagination/Pagination.tsx";
+import {getLeagues} from "./leaguesService.ts";
+import type {League} from "../../../types/leagues.contract.ts";
+import Card from "../../shared/card/Card.tsx";
+import Input from "../../shared/input/Input.tsx";
+import Pagination from "../../shared/pagination/Pagination.tsx";
+import {useNavigate} from "react-router-dom";
 
 function Leagues() {
     const [all, setAll] = useState<League[]>([]);
@@ -27,6 +28,12 @@ function Leagues() {
         return filtered.slice(range[0], range[1]);
     }, [filtered, range]);
 
+    const navigate = useNavigate();
+
+    const navigationToCalendar = (id: number | string) => {
+        navigate(`/calendar/leagues/${id}`);
+    };
+
     return (
         <>
             <section className="leagues">
@@ -34,11 +41,13 @@ function Leagues() {
 
                 <div className="leagues__content">
                     {view.map((league) => (
-                        <Card
-                            key={league.id}
-                            img={league.emblem}
-                            name={league.name}
-                        />
+                        <div key={league.id} onClick={() => navigationToCalendar(league.id)}>
+                            <Card
+                                key={league.id}
+                                img={league.emblem}
+                                name={league.name}
+                            />
+                        </div>
                     ))}
                 </div>
 

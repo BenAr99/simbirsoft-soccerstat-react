@@ -33,7 +33,7 @@ function Pagination({
         <div className="pagination">
             {currentPage > 1 && (
                 <button onClick={prevPage} type="button">
-                    <img alt="Назад" src="public/icons/left.svg"/>
+                    <img alt="Назад" src="/public/icons/left.svg"/>
                 </button>
             )}
 
@@ -47,7 +47,7 @@ function Pagination({
 
             {currentPage < pages[pages.length - 1] && (
                 <button onClick={nextPage} type="button">
-                    <img alt="Вперед" src="public/icons/right.svg"/>
+                    <img alt="Вперед" src="/public/icons/right.svg"/>
                 </button>
             )}
         </div>

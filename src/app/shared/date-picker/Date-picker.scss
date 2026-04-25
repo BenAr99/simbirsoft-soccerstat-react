@@ -1,0 +1,37 @@
+@use '../../../styles/Variables' as var;
+
+
+.date-picker {
+  display: flex;
+}
+
+.date-picker__container {
+  display: flex;
+  position: relative;
+  background-color: var(--white-color);
+  border: 1px solid var(--black-gray-color);
+  border-radius: 7px;
+  padding: 12px 19px;
+
+  input {
+    width: 100%;
+    min-width: 80px;
+  }
+
+  input[type='date'] {
+    &::-webkit-calendar-picker-indicator {
+      display: none;
+    }
+  }
+}
+
+.date-picker__hidden {
+  position: absolute;
+  opacity: 0;
+}
+
+@media (max-width: var.$tablet) {
+  .date-picker__container {
+    padding: 6px 9px;
+  }
+}

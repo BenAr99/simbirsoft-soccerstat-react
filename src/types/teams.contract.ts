@@ -1,4 +1,4 @@
-import type {Status} from "./status.ts";
+import type {Status} from "../app/pages/calendar/calendar.contract.ts";
 
 export interface Team {
     crest: string;

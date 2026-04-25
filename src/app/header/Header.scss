@@ -39,8 +39,10 @@ header {
 }
 
 @media (max-width: var.$tablet) {
-  img {
-    width: 150px;
+  .header__container {
+    img {
+      width: 150px;
+    }
   }
   .header__nav {
     li {
