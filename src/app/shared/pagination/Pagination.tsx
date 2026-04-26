@@ -1,4 +1,6 @@
 import {type ReactElement, useEffect, useMemo, useState} from "react";
+import leftIcon from '/src/assets/icons/left.svg'
+import rightIcon from '/src/assets/icons/right.svg'
 import {pagePagination} from "./page-pagination.ts";
 import type {PaginationProps} from "./pagination.contract.ts";
 import './Pagination.scss'
@@ -33,7 +35,7 @@ function Pagination({
         <div className="pagination">
             {currentPage > 1 && (
                 <button onClick={prevPage} type="button">
-                    <img alt="Назад" src="/public/icons/left.svg"/>
+                    <img alt="Назад" src={leftIcon}/>
                 </button>
             )}
 
@@ -47,7 +49,7 @@ function Pagination({
 
             {currentPage < pages[pages.length - 1] && (
                 <button onClick={nextPage} type="button">
-                    <img alt="Вперед" src="/public/icons/right.svg"/>
+                    <img alt="Вперед" src={rightIcon}/>
                 </button>
             )}
         </div>

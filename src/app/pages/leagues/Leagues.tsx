@@ -1,4 +1,5 @@
 import './Leagues.scss'
+import searchIcon from '/src/assets/icons/search.svg'
 import {type ReactElement, useEffect, useMemo, useState} from "react";
 import {getLeagues} from "./leaguesService.ts";
 import type {League} from "../../../types/leagues.contract.ts";
@@ -37,7 +38,7 @@ function Leagues(): ReactElement {
     return (
         <>
             <section className="leagues">
-                <Input placeholder="Поиск" image='search.svg' value={search} onChange={setSearch}/>
+                <Input placeholder="Поиск" image={searchIcon} value={search} onChange={setSearch}/>
 
                 <div className="leagues__content">
                     {view.map((league) => (

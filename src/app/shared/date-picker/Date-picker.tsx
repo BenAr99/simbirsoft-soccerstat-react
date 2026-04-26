@@ -1,4 +1,5 @@
 import React, {type ReactElement, useRef} from "react";
+import DatePickerIcon from '/src/assets/icons/date-picker.svg'
 import './Date-picker.scss'
 
 
@@ -46,7 +47,7 @@ const DatePicker = ({
                 value={formattedDate}
                 readOnly
             />
-            <img alt="Изображение календаря" src="/public/icons/date-picker.svg"/>
+            <img alt="Изображение календаря" src={DatePickerIcon}/>
 
         </div>
     );

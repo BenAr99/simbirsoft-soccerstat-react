@@ -13,7 +13,7 @@ function Input(props: InputProps): ReactElement {
         <>
             <div className="input__container">
                 {props.image && (
-                    <img alt="Иконка поля" src={`public/icons/${props.image}`}/>
+                    <img alt="Иконка поля" src={props.image}/>
                 )}
                 <input placeholder={props.placeholder} value={props.value}
                        onChange={(e) => props.onChange(e.target.value)}/>

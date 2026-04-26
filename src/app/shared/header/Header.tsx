@@ -1,3 +1,4 @@
+import fifaLogo from '/src/assets/images/fifaLogo.png'
 import './Header.scss'
 import {NavLink} from "react-router-dom";
 import type {ReactElement} from "react";
@@ -6,7 +7,7 @@ function Header(): ReactElement {
     return (
         <section className="header__container">
             <header>
-                <img alt="Лого" src="/images/fifaLogo.png"/>
+                <img alt="Лого" src={fifaLogo}/>
                 <nav>
                     <ul className="header__nav">
                         <li>

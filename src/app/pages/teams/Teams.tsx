@@ -1,4 +1,5 @@
 import './Teams.scss'
+import searchIcon from '/src/assets/icons/search.svg'
 import Input from "../../shared/input/Input.tsx";
 import Card from "../../shared/card/Card.tsx";
 import {type ReactElement, useEffect, useMemo, useState} from "react";
@@ -34,7 +35,7 @@ function Teams(): ReactElement {
     return (
         <>
             <section className="teams">
-                <Input placeholder='Поиск' image='search.svg' value={search} onChange={setSearch}></Input>
+                <Input placeholder='Поиск' image={searchIcon} value={search} onChange={setSearch}></Input>
 
                 <div className="teams__content">
                     {view.map((team: Team) => (
