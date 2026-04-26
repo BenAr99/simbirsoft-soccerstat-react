@@ -1,5 +1,5 @@
 import "./Calendar.scss";
-import {useEffect, useMemo, useState} from "react";
+import {type ReactElement, useEffect, useMemo, useState} from "react";
 import {Link, useParams} from "react-router-dom";
 
 import DatePicker from "../../shared/date-picker/Date-picker.tsx";
@@ -17,7 +17,7 @@ type Props = {
     ) => Promise<MatchCalendar>;
 };
 
-function Calendar({service}: Props) {
+function Calendar({service}: Props): ReactElement {
     const {id} = useParams();
 
     const [all, setAll] = useState<Match[]>([]);

@@ -4,8 +4,8 @@ import type {
     LeaguesResponse
 } from "../../../types/leagues.contract.ts";
 
-import type { MatchCalendar } from "../calendar/calendar.contract.ts";
-import { apiFetch } from "../../shared/api/api.ts";
+import type {MatchCalendar} from "../calendar/calendar.contract.ts";
+import {apiFetch} from "../../shared/api/api.ts";
 
 
 export const getLeagues = async (): Promise<League[]> => {

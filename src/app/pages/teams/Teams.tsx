@@ -1,23 +1,23 @@
 import './Teams.scss'
 import Input from "../../shared/input/Input.tsx";
 import Card from "../../shared/card/Card.tsx";
-import {useEffect, useMemo, useState} from "react";
+import {type ReactElement, useEffect, useMemo, useState} from "react";
 import type {Team} from "../../../types/teams.contract.ts";
 import {getTeams} from "./teamsService.ts";
 import Pagination from "../../shared/pagination/Pagination.tsx";
 import {useNavigate} from "react-router-dom";
 
-function Teams() {
+function Teams(): ReactElement {
     const [all, setAll] = useState<Team[]>([]);
     const [search, setSearch] = useState("");
     const [range, setRange] = useState<[number, number]>([0, 10]);
 
 
-    useEffect(() => {
+    useEffect((): void => {
         getTeams().then(setAll);
     }, [])
 
-    const filtered = useMemo(()=> {
+    const filtered = useMemo(() => {
         return all.filter((team: Team) => !search || team.name.toLowerCase().includes(search.toLowerCase()))
     }, [all, search])
 
@@ -27,7 +27,7 @@ function Teams() {
 
     const navigate = useNavigate();
 
-    const navigationToCalendar = (id: number | string) => {
+    const navigationToCalendar = (id: number | string): void => {
         navigate(`/calendar/teams/${id}`);
     };
 
@@ -39,7 +39,7 @@ function Teams() {
                 <div className="teams__content">
                     {view.map((team: Team) => (
                         <div key={team.id} onClick={() => navigationToCalendar(team.id)}>
-                            <Card img={team.crest} name={team.name} />
+                            <Card img={team.crest} name={team.name}/>
                         </div>
                     ))}
                 </div>

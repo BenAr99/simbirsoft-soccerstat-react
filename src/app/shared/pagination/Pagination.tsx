@@ -1,4 +1,4 @@
-import {useEffect, useMemo, useState} from "react";
+import {type ReactElement, useEffect, useMemo, useState} from "react";
 import {pagePagination} from "./page-pagination.ts";
 import type {PaginationProps} from "./pagination.contract.ts";
 import './Pagination.scss'
@@ -8,7 +8,7 @@ function Pagination({
                         perPage,
                         maxPagesView = 5,
                         onChange,
-                    }: PaginationProps) {
+                    }: PaginationProps): ReactElement {
     const [currentPage, setCurrentPage] = useState(1);
 
     const pages = useMemo(() => {
@@ -25,9 +25,9 @@ function Pagination({
 
     const pagesView = pagePagination(pages, currentPage, maxPagesView);
 
-    const prevPage = () => setCurrentPage((p) => p - 1);
-    const nextPage = () => setCurrentPage((p) => p + 1);
-    const setPage = (page: number) => setCurrentPage(page);
+    const prevPage = (): void => setCurrentPage((p) => p - 1);
+    const nextPage = (): void => setCurrentPage((p) => p + 1);
+    const setPage = (page: number): void => setCurrentPage(page);
 
     return (
         <div className="pagination">

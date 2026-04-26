@@ -1,7 +1,8 @@
-import Header from "../header/Header.tsx";
+import Header from "../shared/header/Header.tsx";
 import {Outlet} from "react-router-dom";
+import type {ReactElement} from "react";
 
-function Layout() {
+function Layout(): ReactElement {
     return (
         <>
             <Header/>

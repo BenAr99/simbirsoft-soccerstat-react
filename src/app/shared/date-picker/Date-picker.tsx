@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, {type ReactElement, useRef} from "react";
 import './Date-picker.scss'
 
 
@@ -12,16 +12,16 @@ const DatePicker = ({
                         value,
                         onChange,
                         disabled = false,
-                    }: Props) => {
+                    }: Props): ReactElement => {
     const hiddenInputRef = useRef<HTMLInputElement>(null);
 
-    const openPicker = () => {
+    const openPicker = (): void => {
         hiddenInputRef.current?.showPicker?.();
     };
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement>
-    ) => {
+    ): void => {
         onChange(e.target.value || "");
     };
 
@@ -46,7 +46,7 @@ const DatePicker = ({
                 value={formattedDate}
                 readOnly
             />
-            <img alt="Изображение календаря" src="/public/icons/date-picker.svg" />
+            <img alt="Изображение календаря" src="/public/icons/date-picker.svg"/>
 
         </div>
     );

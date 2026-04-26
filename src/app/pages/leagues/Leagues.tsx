@@ -1,5 +1,5 @@
 import './Leagues.scss'
-import {useEffect, useMemo, useState} from "react";
+import {type ReactElement, useEffect, useMemo, useState} from "react";
 import {getLeagues} from "./leaguesService.ts";
 import type {League} from "../../../types/leagues.contract.ts";
 import Card from "../../shared/card/Card.tsx";
@@ -7,12 +7,12 @@ import Input from "../../shared/input/Input.tsx";
 import Pagination from "../../shared/pagination/Pagination.tsx";
 import {useNavigate} from "react-router-dom";
 
-function Leagues() {
+function Leagues(): ReactElement {
     const [all, setAll] = useState<League[]>([]);
     const [search, setSearch] = useState("");
     const [range, setRange] = useState<[number, number]>([0, 10]);
 
-    useEffect(() => {
+    useEffect((): void => {
         getLeagues().then(setAll);
     }, []);
 
@@ -30,14 +30,14 @@ function Leagues() {
 
     const navigate = useNavigate();
 
-    const navigationToCalendar = (id: number | string) => {
+    const navigationToCalendar = (id: number | string): void => {
         navigate(`/calendar/leagues/${id}`);
     };
 
     return (
         <>
             <section className="leagues">
-                <Input placeholder="Поиск" image='search.svg' value={search} onChange={setSearch} />
+                <Input placeholder="Поиск" image='search.svg' value={search} onChange={setSearch}/>
 
                 <div className="leagues__content">
                     {view.map((league) => (

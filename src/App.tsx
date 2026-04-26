@@ -6,8 +6,9 @@ import Teams from "./app/pages/teams/Teams.tsx";
 import Calendar from "./app/pages/calendar/Calendar.tsx";
 import {getMatchesTeam} from "./app/pages/teams/teamsService.ts";
 import {getMatchesLeague} from "./app/pages/leagues/leaguesService.ts";
+import type {ReactElement} from "react";
 
-function App() {
+function App(): ReactElement {
 
     return (
         <>
@@ -28,7 +29,7 @@ function App() {
                             <Calendar service={getMatchesTeam}/>
                         }
                     />
-                    </Route>
+                </Route>
             </Routes>
         </>
     )
