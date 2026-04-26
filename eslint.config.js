@@ -22,6 +22,7 @@ export default defineConfig([
             '@typescript-eslint/no-explicit-any': 'error',
             '@typescript-eslint/no-shadow': 'warn',
             '@typescript-eslint/no-unused-vars': 'warn',
+            "react-refresh/only-export-components": "off",
             eqeqeq: 'error',
             'guard-for-in': 'error',
             'max-classes-per-file': ['error', 1],

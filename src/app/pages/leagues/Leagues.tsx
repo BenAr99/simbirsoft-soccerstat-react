@@ -7,15 +7,18 @@ import Card from "../../shared/card/Card.tsx";
 import Input from "../../shared/input/Input.tsx";
 import Pagination from "../../shared/pagination/Pagination.tsx";
 import {useNavigate} from "react-router-dom";
+import {useError} from "../../shared/context/error.tsx";
+
 
 function Leagues(): ReactElement {
+    const { setError } = useError();
     const [all, setAll] = useState<League[]>([]);
     const [search, setSearch] = useState("");
     const [range, setRange] = useState<[number, number]>([0, 10]);
 
     useEffect((): void => {
-        getLeagues().then(setAll);
-    }, []);
+        getLeagues().then(setAll).catch((e) => setError(e.message));
+    }, [setError]);
 
     const filtered = useMemo(() => {
         return all.filter(

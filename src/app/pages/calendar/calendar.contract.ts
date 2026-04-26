@@ -1,7 +1,3 @@
-export interface CalendarService {
-    getMatches(id: string, startDate: Date | null, endDate: Date | null): Promise<MatchCalendar>;
-}
-
 export interface MatchCalendar {
     name: string;
     matches: Match[];

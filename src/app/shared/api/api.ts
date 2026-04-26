@@ -7,10 +7,14 @@ export const apiFetch = async <T>(url: string): Promise<T> => {
             "X-Auth-Token": import.meta.env.VITE_API_KEY
         },
     });
-    console.log('Запрос отправлен')
     if (!res.ok) {
-        const errorBody = await res.text();
-        throw new Error(errorBody || `HTTP error ${res.status}`);
+        const errorBody = await res.json().catch(() => null);
+
+        const message =
+            errorBody?.message ||
+            `HTTP error ${res.status}`;
+
+        throw new Error(message);
     }
 
     return res.json();
